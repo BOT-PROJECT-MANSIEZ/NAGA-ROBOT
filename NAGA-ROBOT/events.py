@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 from telethon import events
 
-from NagaRobot import telethn
+from NAGA-ROBOT import telethn
 
 
 def register(**args):
@@ -108,18 +108,18 @@ def load_module(shortname):
         import importlib
         import NagaRobot.events
 
-        path = Path(f"NagaRobot/modules/{shortname}.py")
-        name = "NagaRobot.modules.{}".format(shortname)
+        path = Path(f"NAGA-ROBOT/modules/{shortname}.py")
+        name = "NAGA-ROBOT.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         print("Successfully imported " + shortname)
     else:
         import importlib
-        import NagaRobot.events
+        import NAGA-ROBOT.events
 
-        path = Path(f"NagaRobot/modules/{shortname}.py")
-        name = "NagaRobot.modules.{}".format(shortname)
+        path = Path(f"NAGA-ROBOT/modules/{shortname}.py")
+        name = "NAGA-ROBOT.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.register = register
@@ -127,11 +127,11 @@ def load_module(shortname):
         mod.tbot = telethn
         mod.logger = logging.getLogger(shortname)
         spec.loader.exec_module(mod)
-        sys.modules["NagaRobot.modules." + shortname] = mod
+        sys.modules["NAGA-ROBOT.modules." + shortname] = mod
         print("Successfully imported " + shortname)
 
 
-path = "NagaRobot/modules/*.py"
+path = "NAGA-ROBOT/modules/*.py"
 files = glob.glob(path)
 for name in files:
     with open(name) as f:
