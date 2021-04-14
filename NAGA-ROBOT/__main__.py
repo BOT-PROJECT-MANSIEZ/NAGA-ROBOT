@@ -372,7 +372,7 @@ def Masha_about_callback(update, context):
                 ]
             ),
         )
-    elif query.data == "NagaRobot_back":
+    elif query.data == "NAGA-ROBOT_back":
         query.message.edit_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
