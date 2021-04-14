@@ -4,7 +4,7 @@ import re
 from sys import argv
 from typing import Optional
 
-from MashaRoBot import (
+from NAGA-ROBOT import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
@@ -25,9 +25,9 @@ from MashaRoBot import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from MashaRoBot.modules import ALL_MODULES
-from MashaRoBot.modules.helper_funcs.chat_status import is_user_admin
-from MashaRoBot.modules.helper_funcs.misc import paginate_modules
+from NAGA-ROBOT.modules import ALL_MODULES
+from NAGA-ROBOT.modules.helper_funcs.chat_status import is_user_admin
+from NAGA-ROBOT.modules.helper_funcs.misc import paginate_modules
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -105,7 +105,7 @@ HELP_STRINGS = """
 MANSIEZZ_IMG = "https://telegra.ph/file/b092081ec5e54a91cf7f6.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project via [Paypal](ko-fi.com/sawada) or by @bismillahselaluadaa \
+ You can support the project via [Paypal](ko-fi.com/Ilhammansiez) or by @bismillahselaluadaa \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at  @bismillahselaluadaa."""
 
@@ -120,7 +120,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("MashaRoBot.modules." + module_name)
+    imported_module = importlib.import_module("NAGA-ROBOT.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -352,7 +352,7 @@ def Masha_about_callback(update, context):
     query = update.callback_query
     if query.data == "masha_":
         query.message.edit_text(
-            text=""" ℹ️ I'm *NagaRobot*, a powerful group management bot built to help you manage your group easily.
+            text=""" ℹ️ I'm *NAGA-ROBOT*, a powerful group management bot built to help you manage your group easily.
                  \n❍ I can restrict users.
                  \n❍ I can greet users with customizable welcome messages and even set a group's rules.
                  \n❍ I have an advanced anti-flood system.
